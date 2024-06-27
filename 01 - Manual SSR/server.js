@@ -3,7 +3,9 @@ const { createServer } = require("http");
 const { parse } = require("url");
 const { renderToString } = require("react-dom/server");
 const React = require("react");
+
 const htmlTemp = readFileSync(`${__dirname}/index.html`, "utf-8");
+const clientBundle = readFileSync(`${__dirname}/client.js`);
 
 const server = createServer((req, res) => {
   const pathName = parse(req.url, true).pathname;
@@ -14,12 +16,15 @@ const server = createServer((req, res) => {
     const result = htmlTemp.replace("Content", renderedReact);
 
     res.writeHead(200, {
-      "Content-type": "text-html",
+      "Content-type": "text/html",
     });
 
     res.end(result);
-  } else if (pathName === "/test") {
-    res.end("TEST URL HAS CHANGED");
+  } else if (pathName === "/client.js") {
+    res.writeHead(200, {
+      "Content-type": "application/javascript",
+    });
+    res.end(clientBundle);
   } else {
     res.end("Just in case");
   }
