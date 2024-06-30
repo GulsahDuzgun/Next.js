@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#### What did I learn while coding this project?
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> #
+>
+> - _Client-Side React Apps are re-rendered when the state or parent's state is updated. Client-Side apps are interactive, have components but require a lot of JS to download and client-server data waterfalls. Server-Side Apps have no component or interactivity but also no need to build API. You can fetch all data easy and fast. It closes the data source and displaying all data with no javacsript was needed at all that means faster page load for our users. UI is function of state in Client-Side, function of data in Server-Side. So to provide interactive, has components and easy to fetch, close to the data source and no needs javascript dowloaded the React Server Components were introduced. ,_
+> - _**What are React Server Componnets?** React Server Components(RSC) is a completely new full-stack architecture for building React apps. It introduces the server as an integral part of React compoonent trees. React tree extends to the server like a bridge that closes the gap between client and server. And the way in which React does that is by introducing a new kind of component which are server components. React Server Components(RSC) paradigm introdus us the server components that are only rendered on the server, never on the client. They are usually responsible for fetching data right on the server. The server components are only run on the server they have no interactivity, so no state which means that they require exactyly zero Javascript file in the downloadable bundle to do their job. With Server components we can build our application's back-end ,_
+> - _Client components are our regular components they responsible for the interactivity. They are responsible for the interactivity, so where the app still function of state. ,_
+> - _React Server Components are not active in react app because it needs server to render html before._
+> - _In RSC paradigm Server Components are default components. For using Client Components we need to specift the "use client" directive at the top of the module. And Client Components childrens also have to be Client Component. There is no need to specify the "use client" for childrens of Client Components. ,_
+> - _The uninteractive part of app doesn't sent any javascript file to the the browser. They are rendered in server. If the component is interactive, the user can effect by clicking, etc. then Client-Component should be used to keep state. ,_
+>
+> - _Server-client boundary as an split points that are runs on the server and code that runs on the client. We use "use client" in order to create these server-client boundaries which in turn will create client sub-trees. Sub-trees that will be executed in the browser. ,_
+> - _Server Components are the default components in the RSC model. Server Components can not be stateful and can't use any hooks. ,_
+> - _Client Components are not the default component so they have to be clerified wit "use client" at the top of the module. Client Components are interactive so they can have state or hooks. Client Components can lift state up but server components don't because they haven't state. ,_
+> - _Client Components and Server Components can have props but in Server Component they have to be serializable when passed to Client Components. Functions and Classes not serializable. _
+> - _ First class way fetching data in React is asycn/await calls in top level code of a Server Component. Also we can fetch data in Client Components. ,_
+> - _Server components can import both client and server component but Client Component just can import client component. Client Components can not go back client components. ,_
+> - _Client components and server components passed as props and can be render. ,_
+> - _On Client Component whenever its state or its parents state changes it will be re-rendered. Whenever the url changes then Server component will be re-render. Because server components are tied to specific routes in the framework.,_
+>
+> #
