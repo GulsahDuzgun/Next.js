@@ -7,7 +7,7 @@ export default function Navigation() {
         <Link href="/">Home</Link>
       </li>
       <li>
-        <a href="/">Home with anchor element</a>
+        <a href="/cabins">cabins with anchor element</a>
       </li>
       <li>
         <Link href="/cabins">Cabins</Link>
