@@ -41,5 +41,7 @@
 > - _The Suspense children are hidden and remain in the fiber tree means that all state in the sub tree is preserved during subsequent suspending and unsuspending phases ,_
 > - _The fallback component will not be shown again if the function that trigged theSuspense wrapped in a transition (startTransition) function. In Next.js, all page navigations are wrapped inside transitions. If a component re-fetches data as a result of a page transition, the fallback component will not be shown again. We can fix this by passing a unique key prop. This will then reset this Suspense boundary ,_
 > - _**How does Suspense actually know that a component is suspending?** The component that asynchronous works have done is child componen. So that child component throws a Promise which will trigger the Suspense boundary to render the fallback. ,_
+> - _Error boundary always should be a client component. And React Error Boundary caughts only the errors in rendering, not in the callback functions ,_
+> - _Root Layout errors are not caught by Error Boundary, if the Root Layout errors will be caught then global-error.js need to be created. That will then replace the entire layout, even the root layout will be gone. The global error needs to define its own HTML and body tag,_
 >
 > #
