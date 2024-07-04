@@ -1,3 +1,4 @@
+import { CabinDescription } from "@/app/_components/CabinDescription";
 import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
@@ -50,7 +51,8 @@ export default async function Page({ params }) {
             Cabin {name}
           </h3>
 
-          <p className="text-lg text-primary-300 mb-10">{description}</p>
+          {/* <p className="text-lg text-primary-300 mb-10">{description}</p> */}
+          <CabinDescription description={description} />
 
           <ul className="flex flex-col gap-4 mb-7">
             <li className="flex gap-3 items-center">
