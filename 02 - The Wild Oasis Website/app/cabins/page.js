@@ -6,6 +6,8 @@ export const metadata = {
   title: "Cabins",
 };
 
+// export const revalidata = 10; //fetch the data from server
+
 export default function Page() {
   return (
     <div>
