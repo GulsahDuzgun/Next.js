@@ -73,5 +73,7 @@
 > - _Client Components can not import server component,can not go back in client-server boundary and import the Server Components from client. Client Components can render Server and Client Component, but Server Component needs to be executed Server Component instance by sending as props._
 > - _Server Components import and render all components._
 > - _A Component is a definition like a blueprint. Components create instances when they are used. So the component type can be change across to where to be used., A Server Component normally creates a Server Component instance but if it is used under a Client Component then it becomes a Client Component instance. Children of Client Components ("use client") will automatically will be become a client component as well. _
+> - _searchParams only available in page.js not in the server components and the page which searchParams props gets is automatically converts a dynamic page. ,_
+> - _Navigation in Next.js is always wrapped in a React transition. In a transition a Suspense won't hide the content that has already been rendered earlier. That's the default behavior of suspense. It just swapped it out as the new content comes in. WE can fetch this by padding in a unique key. And the URL changes, the server component will re-render because searchParam unknown at build time ,_
 >
 > #

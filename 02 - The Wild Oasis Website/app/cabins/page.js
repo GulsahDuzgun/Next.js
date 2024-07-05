@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
+import Filter from "../_components/Filter";
 
 export const metadata = {
   title: "Cabins",
@@ -8,7 +9,11 @@ export const metadata = {
 
 // export const revalidata = 10; //fetch the data from server
 
-export default function Page() {
+//searchParams can get only page.js and it makes the page dynamic
+
+export default function Page({ searchParams }) {
+  const filteredQuery = searchParams?.capacity ?? "all";
+
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -22,8 +27,13 @@ export default function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-      <Suspense fallback={<Spinner />}>
-        <CabinList />
+
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
+
+      <Suspense key={filteredQuery} fallback={<Spinner />}>
+        <CabinList filter={filteredQuery} />
       </Suspense>
     </div>
   );
