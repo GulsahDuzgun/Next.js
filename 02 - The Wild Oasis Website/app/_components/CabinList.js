@@ -1,5 +1,3 @@
-"use client";
-
 import CabinCard from "@/app/_components/CabinCard";
 import { getCabins } from "../_lib/data-service";
 // import { unstable_noStore as noStore } from "next/cache";
@@ -7,9 +5,6 @@ import { getCabins } from "../_lib/data-service";
 export default async function CabinList({ filter }) {
   // noStore();
   const cabins = await getCabins();
-  console.log(filter);
-  console.log(cabins);
-
   let filteredCabins;
 
   if (filter === "all") filteredCabins = cabins;
