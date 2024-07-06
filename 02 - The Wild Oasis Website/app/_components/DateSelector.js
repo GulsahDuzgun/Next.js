@@ -3,6 +3,7 @@
 import { isWithinInterval } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
   return (
@@ -28,7 +29,7 @@ function DateSelector({ cabin, settings, bookings }) {
     description,
   } = cabin;
 
-  const range = { from: null, to: maxCapacity };
+  const { range, setRange, resetRange } = useReservation();
 
   // SETTINGS
   const { minBookingLength, maxBookingLength } = settings;
@@ -45,6 +46,8 @@ function DateSelector({ cabin, settings, bookings }) {
         toYear={new Date().getFullYear() + 5}
         captionLayout="dropdown"
         numberOfMonths={2}
+        onSelect={(range) => setRange(range)}
+        selected={range}
       />
 
       <div className="flex items-center justify-between px-8 bg-accent-500 text-primary-800 h-[72px]">
