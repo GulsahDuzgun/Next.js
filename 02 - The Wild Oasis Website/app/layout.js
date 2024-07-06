@@ -19,18 +19,20 @@ const josefin_Font = Josefin_Sans({
 });
 console.log(josefin_Font);
 
+// The children props is the page.js -server component-, So ReservationContext is Client Component but we send the executed React element to this Client Component.
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${josefin_Font.className} bg-primary-950 text-primary-100 min-h-screen flex flex-col antialiased relative`}
       >
-        <Header />
-        <ReservationContext>
-          <div className="flex-1 px-8 py-12 grid">
-            <main className="max-w-7xl mx-auto w-full">{children}</main>
-          </div>
-        </ReservationContext>
+        <div className="flex-1 px-8 py-12 grid">
+          <Header />
+          <main className="max-w-7xl mx-auto w-full">
+            <ReservationContext>{children}</ReservationContext>
+          </main>
+        </div>
       </body>
     </html>
   );
