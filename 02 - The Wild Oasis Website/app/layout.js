@@ -6,8 +6,8 @@ import { ReservationContext } from "./_components/ReservationContext";
 export const metadata = {
   // title: "Keep Going Forward || The Wield Oasis",
   title: {
-    template: "The Wield Oasis || %s",
-    default: "The Wield Oasis",
+    template: "The Wild Oasis || %s",
+    default: "The Wild Oasis",
   },
   description:
     "hotel, located in the heart of Italian Dolomites, surrounded by beautiful mountains and dark forest",
