@@ -27,9 +27,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${josefin_Font.className} bg-primary-950 text-primary-100 min-h-screen flex flex-col antialiased relative`}
       >
+        <Header />
         <div className="flex-1 px-8 py-12 grid">
-          <Header />
-          <main className="max-w-7xl mx-auto w-full">
+          <main className="max-w-7xl mx-auto w-full ">
             <ReservationContext>{children}</ReservationContext>
           </main>
         </div>
