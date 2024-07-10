@@ -35,7 +35,7 @@ export default function UpdateProfileForm({ children, guest }) {
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
           <img
-            src={`https://flagcdn.com/${countryFlag}`}
+            src={countryFlag}
             alt="Country flag"
             className="h-5 rounded-sm"
           />
