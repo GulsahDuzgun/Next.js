@@ -24,7 +24,7 @@ export async function updateGuest(formData) {
   if (!session) throw new Error("You must be logged in.");
 
   const nationalID = formData.get("nationalID");
-  const [nationality, countryFlag] = formData.get("nationality").split("%");
+  const [nationality, countryFlag] = formData.get("nationality")?.split("%");
 
   if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID))
     throw new Error("Please provide a valid national ID");
@@ -82,7 +82,7 @@ export async function updateBooking(formData) {
 
   const updatedFeatures = {
     numGuests: Number(formData.get("numGuests")),
-    observations: formData.get("observations").slice(0, 100),
+    observations: formData.get("observations")?.slice(0, 100),
   };
 
   const { error } = await supabase
@@ -106,7 +106,7 @@ export async function createBooking(bookingData, formData) {
     ...bookingData,
     guestId: session.user.guestId,
     numGuests: Number(formData.get("numGuests")),
-    observations: formData.get("observations").slice(0, 100),
+    observations: formData.get("observations")?.slice(0, 100),
     extrasPrice: 0,
     totalPrice: bookingData.cabinPrice,
     isPaid: false,
@@ -121,4 +121,5 @@ export async function createBooking(bookingData, formData) {
   }
 
   revalidatePath(`/cabins/${bookingData.cabinId}`);
+  redirect("/cabins/thankyou");
 }
