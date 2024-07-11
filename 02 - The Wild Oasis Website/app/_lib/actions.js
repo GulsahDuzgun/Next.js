@@ -43,11 +43,11 @@ export async function updateGuest(formData) {
   if (error) {
     throw new Error("Guest could not be updated");
   }
-
-  revalidatePath("/account/profile");
 }
 
 export async function deleteBooking(id) {
+  // await new Promise((res) => setTimeout(res, 5000));
+
   const session = await auth();
   if (!session) throw new Error("You must be logged in.");
 
@@ -76,9 +76,6 @@ export async function updateBooking(formData) {
 
   const usersBookings = await getBookings(guestID);
   const userBookingsIDs = usersBookings.map((booking) => booking.id);
-
-  console.log(userBookingsIDs);
-  console.log(editedBookingID);
 
   if (!userBookingsIDs.includes(editedBookingID))
     throw new Error("You are not allow to update this booking");
