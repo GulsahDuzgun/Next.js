@@ -4,6 +4,7 @@ import { formatDate } from "date-fns";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 import { revalidatePath } from "next/cache";
+import { getBookings } from "./data-service";
 
 export async function signInUser() {
   await signIn("google", {
@@ -31,7 +32,7 @@ export async function updateGuest(formData) {
     nationality,
     countryFlag,
   };
-  console.log(updatedData);
+
   const { error } = await supabase
     .from("guests")
     .update(updatedData)
@@ -42,4 +43,24 @@ export async function updateGuest(formData) {
   }
 
   revalidatePath("/account/profile");
+}
+
+export async function deleteBooking(id) {
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in.");
+
+  const bookings = await getBookings(session.user.guestId);
+  const bookingIDs = bookings.map((booking) => booking.id);
+
+  if (!bookingIDs.includes(id))
+    throw new Error("You are not allow to delete this booking.");
+
+  const { error } = await supabase.from("bookings").delete().eq("id", id);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Booking could not be deleted");
+  }
+
+  revalidatePath("account/reservations");
 }
