@@ -3,6 +3,7 @@
 import { formatDate } from "date-fns";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
+import { revalidatePath } from "next/cache";
 
 export async function signInUser() {
   await signIn("google", {
@@ -39,4 +40,6 @@ export async function updateGuest(formData) {
   if (error) {
     throw new Error("Guest could not be updated");
   }
+
+  revalidatePath("/account/profile");
 }
