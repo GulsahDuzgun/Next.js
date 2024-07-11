@@ -119,4 +119,6 @@ export async function createBooking(bookingData, formData) {
   if (error) {
     throw new Error("Guest could not be created");
   }
+
+  revalidatePath(`/cabins/${bookingData.cabinId}`);
 }
