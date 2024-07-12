@@ -52,7 +52,7 @@ You can try by clicking <strong>[The Wild Oasis Website](https://the-wild-oasis-
 <br/>
  <br/>
  <br/> 
-   <img src="..../readME_img/02/02/the-wild-oasis-website--9.png" alt="The Wild Oasis Website">
+   <img src="../readME_img/02/the-wild-oasis-website--9.png" alt="The Wild Oasis Website">
 <br/>
  <br/>
  <br/> 
